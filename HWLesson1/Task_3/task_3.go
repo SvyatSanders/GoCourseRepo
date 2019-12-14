@@ -1,0 +1,42 @@
+package main
+
+import (
+	"fmt"
+	"math"
+	"os"
+)
+
+// 3. Пользователь вводит сумму вклада в банк и годовой процент.
+// Найти сумму вклада через 5 лет.
+
+func main() {
+	var vklad float64 // сумму вклада
+	fmt.Println("Введите сумму вклада на 5 лет в рублях")
+	fmt.Fscan(os.Stdin, &vklad)
+
+	var percent float64 // сумму вклада
+	fmt.Println("Введите ежегодный % вклада")
+	fmt.Fscan(os.Stdin, &percent)
+
+	firstYear := vklad * (1 + (percent / 100))
+	secondYear := firstYear * (1 + (percent / 100))
+	thirdYear := secondYear * (1 + (percent / 100))
+	fourthYear := thirdYear * (1 + (percent / 100))
+	fifthYear := fourthYear * (1 + (percent / 100))
+	fmt.Println("Сумма вклада через 5 лет = ", (Round(fifthYear, 2)), "руб.")
+}
+
+//Round - округление до 2х знаков после запятой
+func Round(x float64, prec int) float64 {
+	var rounder float64
+	pow := math.Pow(10, float64(prec))
+	intermed := x * pow
+	_, frac := math.Modf(intermed)
+	if frac >= 0.5 {
+		rounder = math.Ceil(intermed)
+	} else {
+		rounder = math.Floor(intermed)
+	}
+
+	return rounder / pow
+}
