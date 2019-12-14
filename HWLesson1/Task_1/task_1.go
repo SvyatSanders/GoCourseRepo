@@ -13,9 +13,9 @@ const UsdCourse float64 = 63.29 // курс доллара
 
 func main() {
 	var deposit float64
-	fmt.Println("Введите сумму вклада в рублях")
+	fmt.Println("Введите сумму в рублях для конвертации в доллары")
 	fmt.Fscan(os.Stdin, &deposit)
-	fmt.Println(Round((deposit/UsdCourse), 2), "USD")
+	fmt.Println(deposit, "рублей = ", Round((deposit/UsdCourse), 2), "USD")
 }
 
 //Round - округление до 2х знаков после запятой
