@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"math"
 	"os"
 )
 
@@ -24,19 +23,4 @@ func main() {
 	fourthYear := thirdYear * (1 + (percent / 100))
 	fifthYear := fourthYear * (1 + (percent / 100))
 	fmt.Printf("Сумма вклада через 5 лет = %.2f руб.\n", fifthYear)
-}
-
-//Round - округление до 2х знаков после запятой
-func Round(x float64, prec int) float64 {
-	var rounder float64
-	pow := math.Pow(10, float64(prec))
-	intermed := x * pow
-	_, frac := math.Modf(intermed)
-	if frac >= 0.5 {
-		rounder = math.Ceil(intermed)
-	} else {
-		rounder = math.Floor(intermed)
-	}
-
-	return rounder / pow
 }
