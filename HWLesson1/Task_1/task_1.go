@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"math"
 	"os"
 )
 
@@ -15,24 +14,5 @@ func main() {
 	var deposit float64
 	fmt.Println("Введите сумму в рублях для конвертации в доллары")
 	fmt.Fscan(os.Stdin, &deposit)
-	fmt.Println(deposit, "рублей = ", Round((deposit/UsdCourse), 2), "USD")
+	fmt.Printf("рублей = %.2f USD\n", deposit/UsdCourse)
 }
-
-//Round - округление до 2х знаков после запятой
-func Round(x float64, prec int) float64 {
-	var rounder float64
-	pow := math.Pow(10, float64(prec))
-	intermed := x * pow
-	_, frac := math.Modf(intermed)
-	if frac >= 0.5 {
-		rounder = math.Ceil(intermed)
-	} else {
-		rounder = math.Floor(intermed)
-	}
-
-	return rounder / pow
-}
-
-// как правильно округлять
-// как правильно проводить операции с разными типами данных (целочисленное и вещественное)
-// exported function / const (type) should have comment or be unexported

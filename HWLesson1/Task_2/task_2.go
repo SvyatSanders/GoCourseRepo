@@ -26,22 +26,7 @@ func main() {
 
 	perimeter := katet1 + katet2 + hypotenuse
 	//fmt.Println("Периметр прямоугольного треугольника = ", perimeter, "см")
-	fmt.Println("Периметр прямоугольного треугольника = ", (Round(perimeter, 2)), "см")
+	fmt.Printf("Периметр прямоугольного треугольника = %.2f см\n", perimeter)
 
-	fmt.Println("Гипотенуза прямоугольного треугольника = ", (Round(hypotenuse, 2)), "см")
-}
-
-//Round - округление до 2х знаков после запятой
-func Round(x float64, prec int) float64 {
-	var rounder float64
-	pow := math.Pow(10, float64(prec))
-	intermed := x * pow
-	_, frac := math.Modf(intermed)
-	if frac >= 0.5 {
-		rounder = math.Ceil(intermed)
-	} else {
-		rounder = math.Floor(intermed)
-	}
-
-	return rounder / pow
+	fmt.Printf("Гипотенуза прямоугольного треугольника = %.2f см\n", hypotenuse)
 }

@@ -23,7 +23,7 @@ func main() {
 	thirdYear := secondYear * (1 + (percent / 100))
 	fourthYear := thirdYear * (1 + (percent / 100))
 	fifthYear := fourthYear * (1 + (percent / 100))
-	fmt.Println("Сумма вклада через 5 лет = ", (Round(fifthYear, 2)), "руб.")
+	fmt.Printf("Сумма вклада через 5 лет = %.2f руб.\n", fifthYear)
 }
 
 //Round - округление до 2х знаков после запятой
