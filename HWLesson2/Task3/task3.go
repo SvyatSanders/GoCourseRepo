@@ -29,14 +29,6 @@ func fibi(n int) int {
 	return a
 }
 
-func main() {
-	for i := 1; i <= 100; i++ {
-		//fmt.Println(fibi(i))
-		//fmt.Println(Fib(i))
-	}
-	fibMB()
-}
-
 func fibMB() {
 	// Initialize two big ints with the first two numbers in the sequence.
 	a := big.NewInt(0)
@@ -59,5 +51,12 @@ func fibMB() {
 	// (ProbablyPrimes' argument sets the number of Miller-Rabin
 	// rounds to be performed. 20 is a good value.)
 	fmt.Println(a.ProbablyPrime(20))
+}
 
+func main() {
+	for i := 1; i <= 100; i++ {
+		//fmt.Println(fibi(i))
+		//fmt.Println(Fib(i))
+	}
+	fibMB()
 }
