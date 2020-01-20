@@ -1,0 +1,37 @@
+// Дополните функцию hello() http-сервера так, чтобы принять и отобразить на странице один GET-параметр, например name.
+// При этом в браузере запрос будет выглядеть так: http://localhost/hello&name=World.
+// Значение этого параметра надо получить в функции и отобразить при выводе html-кода
+
+package main
+
+import (
+	"io"
+	"log"
+	"net"
+	"time"
+)
+
+// в терминале: curl localhost:8000
+func main() {
+	listener, err := net.Listen("tcp", "localhost:8000")
+	if err != nil {
+		log.Fatal(err)
+	}
+	for {
+		conn, err := listener.Accept()
+		if err != nil {
+			log.Print(err)
+			continue
+		}
+		for {
+			_, err = io.WriteString(conn, "Hello tcp-world!\r\n")
+			if err != nil {
+				log.Print(err)
+				return
+			}
+			time.Sleep(1 * time.Second)
+		}
+		defer conn.Close()
+	}
+
+}
