@@ -32,8 +32,8 @@ func SquareRoot(A, B, C float64) []float64 {
 	return arr
 }
 
-func main() {
-	SquareRoot(2, -5, 3)
-	SquareRoot(-4, 28, -49)
-	SquareRoot(5, 6, 2)
-}
+// func main() {
+// 	SquareRoot(2, -5, 3)
+// 	SquareRoot(-4, 28, -49)
+// 	SquareRoot(5, 6, 2)
+// }
